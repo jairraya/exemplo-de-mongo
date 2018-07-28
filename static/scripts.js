@@ -28,12 +28,11 @@ botao.addEventListener('click', () => {
 function carregar(){
     fetch('http://10.162.105.176:3000/emails').then((resposta) => {
         return resposta.json();
-    }).then((dados) => {
+    }).then((cadastros) => {
         let html = '';
 
-        for(let nome of Object.keys(dados)){
-            let email = dados[nome];
-            html += `<li>${nome} - ${email}</li>`;
+        for(let cadastro of cadastros){
+            html += `<li>${cadastro.nome} - ${cadastro.email}</li>`;
         }
 
         lista.innerHTML = html;
